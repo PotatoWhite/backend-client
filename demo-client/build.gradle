@@ -1,0 +1,21 @@
+bootJar {
+    enabled(false)
+}
+
+jar {
+    enabled(true)
+}
+
+dependencies {
+    implementation("org.springframework.boot:spring-boot-starter-webflux")
+    annotationProcessor 'org.projectlombok:lombok'
+    
+    // for Unit Test
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+    testImplementation 'io.projectreactor:reactor-test'
+    testAnnotationProcessor 'org.projectlombok:lombok'
+    testCompileOnly 'org.projectlombok:lombok'
+
+}
